@@ -13,7 +13,7 @@
     <table class="table">
         <thead>
           <tr>
-            <th >Image</th>
+            <th >Gambar</th>
             <th >Judul Artikel</th>
             <th >Isi Artikel</th>
             <th >Action</th>
