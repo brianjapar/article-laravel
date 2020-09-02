@@ -9,6 +9,13 @@
 
     @endif
 
+    @if(!$errors->isEmpty())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error }}</div>
+        @endforeach
+    @endif
+
+
     <div class="container">
         <div class="artikel">
             <form method="POST" action="{{route('createArtikel')}}" enctype="multipart/form-data">
