@@ -42,12 +42,12 @@ class ArtikelController extends Controller
     }
 
     public function edit($id){
-        $article = DB::table('articles')->where('id_article',$id)->first();
+       $article = Artikel::find($id);
 
-        return view('edit',compact('article'));
+        return view('article_edit',compact('articles'));
     }
 
-    public function update(Request $request){
+    public function update($id,Request $request){
         $data = $request->all();
         $validator = Validator::make($data,[
             'nama_penulis' => 'required|string|min:5',
@@ -57,16 +57,27 @@ class ArtikelController extends Controller
 
         ]);
         if($validator->fails()){
-            return redirect(route('viewHome'))->withErrors($validator)->withInput();
+            return redirect('/article');
         }
 
-        $path = $request->file('file')->store('image_assets');
-        DB::table('articles')->where('id_article',$request -> id)-> upddate([
-            'nama_penulis'=> $request->nama,
-            'judul_artikel'=> $request->judul,
-            'isi_artikel'=> $request->isiArtikel,
-            'file'=> $path
-        ]);
-        return redirect(route('viewHome'))->with('success','Data Artikel Berhasil diUbah');
+
+        $article = Artikel::find($id);
+
+        $article->nama_penulis = $request->nama;
+        $article->judul_artikel = $request->judul;
+        $article->isi_artikel = $request->isiArtikel;
+        if($request->has('file')){
+            $path=$request->file('file')->store('image_assets');
+            $article->file=$path;
+        }
+        $article->save();
+        return redirect('/article')->with('success','Data Artikel Berhasil diUbah');
+    }
+
+
+    public function delete($id){
+        $article = Artikel::find($id);
+        $article->delete();
+        return redirect()->back();
     }
 }

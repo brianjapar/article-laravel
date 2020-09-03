@@ -3,7 +3,7 @@
 @section('title','Page2')
 @section('content')
 <div class="artikel">
-
+    @csrf
     <br>
     <div class="nambahartikel">
         <a href="/" style="color: black;">Add Article</a>
@@ -27,9 +27,9 @@
                 <td>{{ $article->judul_artikel }}</td>
                 <td>{{ $article->isi_artikel }}</td>
                 <td>
-                    <a href="/article/edit/{{ $article->id_article }}" class="btn btn-xs btn-primary">Edit</a>
-                    {{-- <button type="edit" style="background-color: gray;">Edit</button> --}}
-                    <button type="delete" style="background-color: darkred;">Delete</button>
+                    <a href="/Artikel/edit{{$article->id}}" class="btn btn-warning">Edit</a>
+                    <a href="/Artikel/delete{{$article->id}}" class="btn btn-danger">Delete</a>
+
                 </td>
             </tr>
             @endforeach

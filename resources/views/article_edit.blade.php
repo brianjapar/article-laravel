@@ -2,6 +2,7 @@
 
 @section('title','Home')
 @section('content')
+    @csrf
     @if (Session::has('success'))
         <div class="alert alert-success">
             <span>{{Session::get('success')}}</span>
@@ -18,17 +19,17 @@
 
     <div class="container">
         <div class="artikel">
-            <form method="POST" action="{{route('editArtikel')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('updateArtikel')}}" enctype="multipart/form-data">
                @csrf
                 <fieldset>
                   <legend>Submit Artikel</legend>
-                  <input class="form-control" type="hidden" name="id" id="id" value="{{ $article->id_article}}">
-                    <p>Nama Penulis  : <input type="text" name="nama"></p>
-                    <p>Judul Artikel : <input type="text" name="judul"></p>
+
+                    <p>Nama Penulis  : <input type="text" name="nama_penulis"></p>
+                    <p>Judul Artikel : <input type="text" name="judul_artikel"></p>
 
                     <p>
                       Isi Artikel Anda :<br>
-                      <textarea rows='10' cols='80' placeholder="Tulis artikel anda di sini" name="isiArtikel"></textarea>
+                      <textarea rows='10' cols='80' placeholder="Tulis artikel anda di sini" name="isi_artikel"></textarea>
                     </p>
                     <p>Upload <input type='file' name='file' /></p>
                     <p><input type="submit" value="Submit"></p>
