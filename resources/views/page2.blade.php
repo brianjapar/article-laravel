@@ -26,7 +26,9 @@
                 <td><img src="{{ asset('storage/'.$article->file) }}" alt="{{$article->file}}" height="250px" width=300px/></td>
                 <td>{{ $article->judul_artikel }}</td>
                 <td>{{ $article->isi_artikel }}</td>
-                <td><button type="edit" style="background-color: gray;">Edit</button>
+                <td>
+                    <a href="/article/edit/{{ $article->id_article }}" class="btn btn-xs btn-primary">Edit</a>
+                    {{-- <button type="edit" style="background-color: gray;">Edit</button> --}}
                     <button type="delete" style="background-color: darkred;">Delete</button>
                 </td>
             </tr>
