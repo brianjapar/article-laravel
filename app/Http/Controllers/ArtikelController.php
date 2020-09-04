@@ -37,7 +37,8 @@ class ArtikelController extends Controller
 
 
     public function show(Request $request){
-        $articles = Artikel::all();
+        $articles = Artikel::paginate(5);
+        // $articles = Artikel::all();
 
         return view('page2',compact('articles'));
     }
@@ -50,6 +51,7 @@ class ArtikelController extends Controller
 
     public function update($id,Request $request){
         $data = $request->all();
+
         $validator = Validator::make($data,[
             'nama_penulis' => 'required|string|min:5',
             'judul_artikel' => 'required|string|min:5',
@@ -62,6 +64,7 @@ class ArtikelController extends Controller
         }
 
         $article = Artikel::find($id);
+        Storage::delete($article->file);
 
         $article->nama_penulis = $request->nama_penulis;
         $article->judul_artikel = $request->judul_artikel;
@@ -73,14 +76,18 @@ class ArtikelController extends Controller
             $path=$article->path;
         }
 
+
         $article->save();
         return redirect('/page2')->with('success','Data Artikel Berhasil diUbah');
     }
 
 
     public function delete($id){
+        //  Artikel::destroy($id);
         $article = Artikel::find($id);
+        Storage::delete($article->file);
         $article->delete();
+
         return redirect()->back();
     }
 
@@ -90,4 +97,5 @@ class ArtikelController extends Controller
 
         return view('/page3',compact('articles','new_articles'));
     }
+
 }

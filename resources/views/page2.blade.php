@@ -35,9 +35,10 @@
             @endforeach
         </tbody>
       </table>
+
       <br>
 </div>
-
+{{ $articles->links() }};
 <nav class="page">
     <a href="/" class="btn btn-dark">1</a>
     <a href="/page2" class="btn btn-dark">2</a>

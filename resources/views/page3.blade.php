@@ -5,8 +5,8 @@
     <div class="artikel">
 
         <h1>{{ $articles->judul_artikel }}</h1>
-        <p>dibuat oleh: <span>{{ $articles->nama_penulis }}</span></p>
-        <img src="{{ asset('storage/'.$articles->file) }}" alt="{{$articles->file}}" />
+        <p><sub>dibuat oleh: <span>{{ $articles->nama_penulis }}</span></sub></p>
+        <img class="w-50 h-50" src="{{ asset('storage/'.$articles->file) }}" alt="{{$articles->file}}" />
         <div class="isiartikel">
 
             <p>{{ $articles->isi_artikel }}</p>
