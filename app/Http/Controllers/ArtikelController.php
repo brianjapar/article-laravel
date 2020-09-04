@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Artikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ArtikelController extends Controller
@@ -57,9 +58,8 @@ class ArtikelController extends Controller
 
         ]);
         if($validator->fails()){
-            return redirect('/article');
+            return redirect('/page2');
         }
-
 
         $article = Artikel::find($id);
 
@@ -69,9 +69,12 @@ class ArtikelController extends Controller
         if($request->has('file')){
             $path=$request->file('file')->store('image_assets');
             $article->file=$path;
+        }else{
+            $path=$article->path;
         }
+
         $article->save();
-        return redirect('/article')->with('success','Data Artikel Berhasil diUbah');
+        return redirect('/page2')->with('success','Data Artikel Berhasil diUbah');
     }
 
 

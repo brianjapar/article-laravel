@@ -2,7 +2,7 @@
 
 @section('title','Edit')
 @section('content')
-    @csrf
+
     @if (Session::has('success'))
         <div class="alert alert-success">
             <span>{{Session::get('success')}}</span>
@@ -17,15 +17,17 @@
     @endif
 
 
-    {{-- <div class="container"> --}}
         <div class="artikel">
+
             <form method="POST" action="/article/update/{{$articles->id}}" enctype="multipart/form-data">
-               @csrf
+                {{-- @method('PATCH') --}}
+                @csrf
+
                 <fieldset>
                   <legend>Submit Artikel</legend>
 
                     <p>Nama Penulis  : <input type="text" name="nama_penulis"></p>
-                    <p>Judul Artikel : <input type="text" name="judul_artikel"></p>
+                    <p>Judul Artikel : <input type="text" name="judul_artikel" value="{{old('judul_artikel') ?? $articles->judul_artikel}}"></p>
 
                     <p>
                       Isi Artikel Anda :<br>
@@ -45,7 +47,7 @@
             <a href="/page2" class="btn btn-dark">2</a>
             <a href="/page3" class="btn btn-dark">3</a>
          </nav>
-    {{-- </div> --}}
+
 
 
 @endsection
