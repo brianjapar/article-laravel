@@ -27,7 +27,7 @@
                   <legend>Submit Artikel</legend>
 
                     <p>Nama Penulis  : <input type="text" name="nama_penulis"></p>
-                    <p>Judul Artikel : <input type="text" name="judul_artikel" value="{{old('judul_artikel') ?? $articles->judul_artikel}}"></p>
+                    <p>Judul Artikel : <input type="text" name="judul_artikel"></p>
 
                     <p>
                       Isi Artikel Anda :<br>
