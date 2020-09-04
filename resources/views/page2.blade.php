@@ -24,7 +24,7 @@
 
             <tr>
                 <td><img src="{{ asset('storage/'.$article->file) }}" alt="{{$article->file}}" height="250px" width=300px/></td>
-                <td>{{ $article->judul_artikel }}</td>
+                <td><a href="{{ route('showDataArtikel',$article->id) }}">{{ $article->judul_artikel }}</a></td>
                 <td>{{ $article->isi_artikel }}</td>
                 <td>
                     <a href="/article/edit/{{$article->id}}" class="btn btn-warning">Edit</a>
