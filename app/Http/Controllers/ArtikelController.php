@@ -25,9 +25,9 @@ class ArtikelController extends Controller
 
         $path = $request->file('file')->store('image_assets');
         Artikel::create([
-            'nama_penulis'=> $request->nama,
-            'judul_artikel'=> $request->judul,
-            'isi_artikel'=> $request->isiArtikel,
+            'nama_penulis'=> $request->nama_penulis,
+            'judul_artikel'=> $request->judul_artikel,
+            'isi_artikel'=> $request->isi_artikel,
             'file'=> $path
         ]);
         return redirect(route('viewHome'))->with('success','Data Berhasil terkirim ke Database');
@@ -42,7 +42,7 @@ class ArtikelController extends Controller
     }
 
     public function edit($id){
-       $article = Artikel::find($id);
+       $articles = Artikel::find($id);
 
         return view('article_edit',compact('articles'));
     }
@@ -63,9 +63,9 @@ class ArtikelController extends Controller
 
         $article = Artikel::find($id);
 
-        $article->nama_penulis = $request->nama;
-        $article->judul_artikel = $request->judul;
-        $article->isi_artikel = $request->isiArtikel;
+        $article->nama_penulis = $request->nama_penulis;
+        $article->judul_artikel = $request->judul_artikel;
+        $article->isi_artikel = $request->isi_artikel;
         if($request->has('file')){
             $path=$request->file('file')->store('image_assets');
             $article->file=$path;

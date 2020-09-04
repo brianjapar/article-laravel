@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Home')
+@section('title','Edit')
 @section('content')
     @csrf
     @if (Session::has('success'))
@@ -17,9 +17,9 @@
     @endif
 
 
-    <div class="container">
+    {{-- <div class="container"> --}}
         <div class="artikel">
-            <form method="POST" action="{{route('updateArtikel')}}" enctype="multipart/form-data">
+            <form method="POST" action="/article/update/{{$articles->id}}" enctype="multipart/form-data">
                @csrf
                 <fieldset>
                   <legend>Submit Artikel</legend>
@@ -41,11 +41,11 @@
         </div>
 
         <nav class="page">
-            <a href="/" >1</a>
-            <a href="/page2" >2</a>
-            <a href="/page3" >3</a>
+            <a href="/" class="btn btn-dark">1</a>
+            <a href="/page2" class="btn btn-dark">2</a>
+            <a href="/page3" class="btn btn-dark">3</a>
          </nav>
-    </div>
+    {{-- </div> --}}
 
 
 @endsection

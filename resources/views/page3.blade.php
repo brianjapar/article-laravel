@@ -32,8 +32,8 @@
     <br><br>
 </div>
 <nav class="page">
-    <a href="/" >1</a>
-    <a href="/page2" >2</a>
-    <a href="/page3" >3</a>
+    <a href="/" class="btn btn-dark">1</a>
+    <a href="/page2" class="btn btn-dark">2</a>
+    <a href="/page3" class="btn btn-dark">3</a>
  </nav>
 @endsection

@@ -16,7 +16,7 @@
     font-size: 50px;
     color:black;
     font-family: fantasy;
-    
+
 }
 
 
@@ -35,21 +35,6 @@
     margin: auto;
 }
 
-/* .navbar{
-    background-color: #333;
-    
-}
-
-nav div .sub1 {
-    display:none;
-    position:absolute;
-    left:150px;
-    top:50px;
-    background-color:#d35400;
-}
-.sub1 a:hover { 
-    color:#fff; 
-} */
 
 .navbar a:hover {
     background-color: #ddd;
@@ -83,7 +68,7 @@ nav div .sub1 {
 
 .isiartikel{
     background-color: burlywood;
-    
+
 }
 .isiartikel p{
     width: 1500px;
@@ -91,20 +76,18 @@ nav div .sub1 {
 }
 
 .image1{
-    width:600px; 
+    width:600px;
     height:400px;
-    
+
     padding-left: 30px;
 }
 .page{
     background-color: darkorange;
     text-align: center;
-    
+
 }
 
 .page a {
-    color: darkorange;
-    background-color: #333;
     text-align: center;
     padding: 10px 20px;
     text-decoration: none;
@@ -119,15 +102,4 @@ nav div .sub1 {
 
 .terpopuler span{
     padding: 20px 50px;
-}
-
-.nambahartikel{
-    background-color: sandybrown;
-    border: solid;
-    margin-right: 700px;
-    margin-left: 700px;
-}
-
-.nambahartikel:hover{
-    background-color: brown;
 }

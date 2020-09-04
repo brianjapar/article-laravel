@@ -5,8 +5,8 @@
 <div class="artikel">
     @csrf
     <br>
-    <div class="nambahartikel">
-        <a href="/" style="color: black;">Add Article</a>
+    <div >
+        <a href="/" class="btn btn-secondary">Add Article</a>
     </div>
 
     <br>
@@ -27,8 +27,8 @@
                 <td>{{ $article->judul_artikel }}</td>
                 <td>{{ $article->isi_artikel }}</td>
                 <td>
-                    <a href="/Artikel/edit{{$article->id}}" class="btn btn-warning">Edit</a>
-                    <a href="/Artikel/delete{{$article->id}}" class="btn btn-danger">Delete</a>
+                    <a href="/article/edit/{{$article->id}}" class="btn btn-warning">Edit</a>
+                    <a href="/article/delete/{{$article->id}}" class="btn btn-danger">Delete</a>
 
                 </td>
             </tr>
@@ -39,8 +39,8 @@
 </div>
 
 <nav class="page">
-    <a href="/">1</a>
-    <a href="/page2" >2</a>
-    <a href="/page3" >3</a>
+    <a href="/" class="btn btn-dark">1</a>
+    <a href="/page2" class="btn btn-dark">2</a>
+    <a href="/page3" class="btn btn-dark">3</a>
  </nav>
 @endsection
