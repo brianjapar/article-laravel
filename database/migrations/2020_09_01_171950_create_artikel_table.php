@@ -18,6 +18,7 @@ class CreateArtikelTable extends Migration
             $table->string('nama_penulis');
             $table->string('judul_artikel');
             $table->text('isi_artikel');
+            // $table->foreignId('user_id);
             $table->string('file')->nullable();
             $table->timestamps();
         });

@@ -13,11 +13,10 @@ Route::get('/article/edit/{id}','ArtikelController@edit')->name('editArtikel');
 Route::patch('/article/update/{id}', 'ArtikelController@update')->name('updateArtikel');
 Route::get('/article/delete/{id}', 'ArtikelController@delete')->name('deleteArtikel');
 Route::get('/page3/{id}', 'ArtikelController@showData')->name('showDataArtikel');
+Route::get('/layouts/app', 'HomeController@index');
 
 
 Route::view('category','category');
-Route::view('login','login');
-Route::view('signup','signup');
-// Route::view('page3', 'page3');
-// Route::post('/article/update/{id}', 'ArtikelController@update')->name('updateArtikel');
 // Route::get('posts/{slug}','PostController@show');
+
+Auth::routes();
