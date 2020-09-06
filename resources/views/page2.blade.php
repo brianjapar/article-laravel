@@ -27,8 +27,11 @@
                 <td><a href="{{ route('showDataArtikel',$article->id) }}">{{ $article->judul_artikel }}</a></td>
                 <td>{{ $article->isi_artikel }}</td>
                 <td>
-                    <a href="/article/edit/{{$article->id}}" class="btn btn-warning">Edit</a>
-                    <a href="/article/delete/{{$article->id}}" class="btn btn-danger">Delete</a>
+                    {{-- khusus untuk user yang buat artikel saja --}}
+                    @if (auth()->user()->id==$article->user_id)
+                        <a href="/article/edit/{{$article->id}}" class="btn btn-warning">Edit</a>
+                        <a href="/article/delete/{{$article->id}}" class="btn btn-danger">Delete</a>
+                    @endif
 
                 </td>
             </tr>

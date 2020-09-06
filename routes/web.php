@@ -14,9 +14,10 @@ Route::patch('/article/update/{id}', 'ArtikelController@update')->name('updateAr
 Route::get('/article/delete/{id}', 'ArtikelController@delete')->name('deleteArtikel');
 Route::get('/page3/{id}', 'ArtikelController@showData')->name('showDataArtikel');
 Route::get('/layouts/app', 'HomeController@index');
-
-
+Route::post('/comment/store', 'CommentController@store' )->name('storeComment');
+Route::post('/reply/store', 'CommentController@storeReplies')->name('storeReply');
 Route::view('category','category');
+
 // Route::get('posts/{slug}','PostController@show');
 
 Auth::routes();

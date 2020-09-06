@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Artikel;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -25,7 +26,8 @@ class ArtikelController extends Controller
         }
 
         $path = $request->file('file')->store('image_assets');
-        Artikel::create([
+        // Artikel::create
+        auth()->user()->articles()->create([
             'nama_penulis'=> $request->nama_penulis,
             'judul_artikel'=> $request->judul_artikel,
             'isi_artikel'=> $request->isi_artikel,
