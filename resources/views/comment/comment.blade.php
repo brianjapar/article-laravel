@@ -4,17 +4,18 @@
         <strong>{{ $comment->user->name }}</strong>
         <p>{!! nl2br($comment->comment) !!}</p>
     </div>
-    <a href="#" onclick="hideFunction()">Reply</a>
+    <a href="#" onclick="hideFunction()">Sembunyikan</a>
     @if (auth()->user())
-        <form action="{{ route('storeReply') }}" method="POST" id="reply">
+        <form action="/reply/store" method="POST" id="reply">
             @csrf
             <div class="form-group">
                 <input type="text" name="comment" class="form-control" placeholder="Reply comment to {{ $comment->user->name }}"/>
-                <input type="hidden" name="post_id" value="{{ $articles_id }}" />
+                <input type="hidden" name="post_id" value="{{ $article_id }}" />
                 <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;" value="Reply" />
+                <input type="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 1.2em;" value="Reply" />
+
             </div>
         </form>
     @endif

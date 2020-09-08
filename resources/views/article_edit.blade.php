@@ -35,7 +35,10 @@
                         {{old('isi_article') ?? $articles->isi_artikel}}
                     </textarea>
                     </p>
-                    <p>Upload <input type='file' name='file' /></p>
+                    <p>Upload <input type='file' name='file' />
+                        <img class="w-25 h-25" src="{{asset('storage/'.$articles->file)}}" alt="image">
+                    </p>
+
                     <p><input type="submit" value="Submit"></p>
                     </fieldset>
 

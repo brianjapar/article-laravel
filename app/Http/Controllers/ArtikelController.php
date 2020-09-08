@@ -97,7 +97,7 @@ class ArtikelController extends Controller
         $articles = Artikel::find($id);
         $new_articles=Artikel::all();
 
-        return view('/page3',compact('articles','new_articles'));
+        return view('/showData',compact('articles','new_articles'));
     }
 
 }

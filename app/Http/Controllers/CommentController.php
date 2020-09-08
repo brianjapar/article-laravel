@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     public function store(Request $request){
-        $comment = new Comment;
+        $comment = new Comment();
         $comment->body = $request->comment_body;
         $comment->user()->associate($request->user());
-        $article = Artikel::find($request->articles_id);
+        $article = Artikel::find($request->article_id);
         $article->comments()->save($comment);
         return back();
     }

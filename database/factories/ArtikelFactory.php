@@ -7,9 +7,15 @@ use Faker\Generator as Faker;
 
 $factory->define(Artikel::class, function (Faker $faker) {
     return [
+        // 'user_id' => $faker->unique()->randomDigit,
         'nama_penulis' => $faker->name,
         'judul_artikel' => $faker->sentence,
         'isi_artikel' => $faker->paragraph,
         'file' => 'image_assets/'. $faker->image($dir=storage_path('app/public/image_assets'), $width=400, $height=400, 'cats', false)
     ];
+
 });
+
+
+
+

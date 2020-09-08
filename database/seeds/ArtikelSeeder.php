@@ -13,4 +13,5 @@ class ArtikelSeeder extends Seeder
     {
         $article = factory( App\Artikel::class, 15)->create();
     }
+
 }

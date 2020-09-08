@@ -21,8 +21,6 @@
             <div class="navbar">
                 <a class="navbar-brand" href="/">Home</a>
                 <a class="navbar-brand" href="/category" >Category </a>
-                {{-- <a class="navbar-brand" href="/signup">Sign Up</a>
-                <a class="navbar-brand" href="/login">Log In</a> --}}
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             </div>
@@ -68,8 +66,12 @@
                         @endguest
                     </ul>
                 </div>
-                <a class="navbar-brand"></a>
+
                 <form class="form-inline">
+                    <a href=""><svg width="25" height="25" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                      </svg></a>
+                    <a class="navbar-brand"></a>
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
