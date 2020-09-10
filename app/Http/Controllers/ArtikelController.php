@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Artikel;
+use App\Jobs\ProcessMail;
+use App\Mail\SubscriptionMail;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -98,6 +101,12 @@ class ArtikelController extends Controller
         $new_articles=Artikel::all();
 
         return view('/showData',compact('articles','new_articles'));
+    }
+
+    public function sendMail(){
+        // return (new SubscriptionMail())->render();
+        // Mail::send(new SubscriptionMail());
+        $this->dispatch(new ProcessMail());
     }
 
 }

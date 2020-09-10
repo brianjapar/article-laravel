@@ -2,6 +2,12 @@
 
 @section('title','Home')
 @section('content')
+    @if (Session::has('msg'))
+        <div class="alert alert-danger">
+            {{Session::get('msg')}}
+        </div>
+    @endif
+
     @if (Session::has('success'))
         <div class="alert alert-success">
             <span>{{Session::get('success')}}</span>
