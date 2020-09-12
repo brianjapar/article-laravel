@@ -18,10 +18,11 @@ class CommentController extends Controller
     }
     public function storeReplies(Request $request){
         $reply = new Comment();
-        $reply->comment = $request->get('comment');
+        $reply->body = $request->get('comment');
         $reply->user()->associate($request->user());
         $reply->parent_id = $request->get('comment_id');
-        $article = Artikel::find($request->get('article_id'));
+        $article = Artikel::find($request->article_id);
+        // dd($request->article_id);
         $article->comments()->save($reply);
         return back();
     }

@@ -4,6 +4,7 @@
 @section('content')
 <div class="artikel">
     @csrf
+    <h2>All Article List</h2>
     <br>
     <div >
         <a href="/" class="btn btn-secondary">Add Article</a>
@@ -27,11 +28,6 @@
                 <td><a href="{{ route('showDataArtikel',$article->id) }}">{{ $article->judul_artikel }}</a></td>
                 <td>{{ $article->isi_artikel }}</td>
                 <td>
-                    {{-- khusus untuk user yang buat artikel saja --}}
-                    @if (auth()->user()->id==$article->user_id)
-                        <a href="/article/edit/{{$article->id}}" class="btn btn-warning">Edit</a>
-                        <a href="/article/delete/{{$article->id}}" class="btn btn-danger">Delete</a>
-                    @endif
 
                 </td>
             </tr>

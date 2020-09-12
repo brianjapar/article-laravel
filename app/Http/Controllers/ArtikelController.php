@@ -6,6 +6,7 @@ use App\Jobs\ProcessMail;
 use App\Mail\SubscriptionMail;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -44,8 +45,15 @@ class ArtikelController extends Controller
     public function show(Request $request){
         $articles = Artikel::paginate(5);
         // $articles = Artikel::all();
-
+        $user=Auth::user();
         return view('page2',compact('articles'));
+    }
+
+    public function showUserArticle(Request $request){
+        $user = Auth::user();
+        $articleRelated = $user->articles;
+
+        return view('page3',['articles'=>$articleRelated]);
     }
 
     public function edit($id){

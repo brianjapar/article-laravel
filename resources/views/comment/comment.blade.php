@@ -2,15 +2,15 @@
 <div class="display-comment ml-4">
     <div>
         <strong>{{ $comment->user->name }}</strong>
-        <p>{!! nl2br($comment->comment) !!}</p>
+        <p>{{ $comment->body }}</p>
     </div>
     <a href="#" onclick="hideFunction()">Sembunyikan</a>
     @if (auth()->user())
-        <form action="/reply/store" method="POST" id="reply">
+        <form action="{{ route('storeReply') }}" method="POST" id="reply">
             @csrf
             <div class="form-group">
                 <input type="text" name="comment" class="form-control" placeholder="Reply comment to {{ $comment->user->name }}"/>
-                <input type="hidden" name="post_id" value="{{ $article_id }}" />
+                <input type="hidden" name="article_id" value="{{ $article_id }}" />
                 <input type="hidden" name="comment_id" value="{{ $comment->id }}" />
             </div>
             <div class="form-group">
@@ -19,6 +19,7 @@
             </div>
         </form>
     @endif
+
     @include('comment.comment', ['comments' => $comment->replies])
 </div>
     <script>

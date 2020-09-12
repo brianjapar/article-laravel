@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
-@section('title','Home')
+@section('title','Page1')
 @section('content')
+
+    @guest
+        asasdasdasda
+    @endguest
     @if (Session::has('msg'))
         <div class="alert alert-danger">
             {{Session::get('msg')}}

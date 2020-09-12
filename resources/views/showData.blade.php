@@ -27,36 +27,23 @@
 
 
             <h4>Display Comments</h4>
-            @foreach($articles->comments as $comment)
-                <div class="display-comment">
-                    <strong>{{ $comment->user->name }}</strong>
-                    <p>{{ $comment->body }}</p>
-                </div>
-            @endforeach
+
             @include('comment.comment',['comments'=>$articles->comments,'article_id'=>$articles->id])
             <br>
 
             <h4>Add comment</h4>
-            <form method="post" action="/comment/store">
+            <form method="post" action="{{ route('storeComment') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <input type="text" name="comment_body" class="form-control" />
                     <input type="hidden" name="article_id" value="{{ $articles->id }}" />
                 </div>
+
                 <div class="form-group">
                     <input type="submit" class="btn btn-warning" value="Add Comment" />
                 </div>
             </form>
-                {{-- <h2>Komentar</h2>
 
-            <form action="{{ route('storeComment') }}" method="POST">
-                @csrf
-                <div class="form-group">
-                    <textarea name="comment" id="" class="form-control" rows="10" placeholder="Write your comment ..."></textarea>
-                    <input type="hidden" name="post_id" value="{{ $articles->id }}">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form> --}}
             <br>
         </div>
     </div>
