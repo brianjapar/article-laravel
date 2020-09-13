@@ -2,6 +2,7 @@
 
 @section('title','showData')
 @section('content')
+
     <div class="artikel">
         <a href="{{ route('sendMail')}}">
             <svg width="15" height="15" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

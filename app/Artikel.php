@@ -18,7 +18,7 @@ class Artikel extends Model
 
     public function comments(){
         return $this->morphMany(Comment::class,'commentable')->whereNull('parent_id');
-        // return $this->belongsToMany('App\Artikel');
+        // return $this->belongsToMany(Comment::class,'commentable')->whereNull('parent_id');
     }
 
 }

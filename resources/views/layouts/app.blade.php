@@ -19,7 +19,7 @@
     <div id="app">
         <nav class="navbar navbar-dark bg-dark">
             <div class="navbar">
-                <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/homepage">Home</a>
                 <a class="navbar-brand" href="/category" >Category </a>
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>

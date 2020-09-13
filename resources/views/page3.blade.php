@@ -2,7 +2,7 @@
 
 @section('title','Page3')
 @section('content')
-    {{-- @if (auth()->user()->id==$articles->user_id) --}}
+
     <div class="artikel">
             @csrf
             <h2>My Article List</h2>
@@ -35,7 +35,7 @@
           <br>
     </div>
     <nav class="page">
-        <a href="/page1" class="btn btn-dark">1</a>
+        <a href="/" class="btn btn-dark">1</a>
         <a href="/page2" class="btn btn-dark">2</a>
         <a href="/page3" class="btn btn-dark">3</a>
      </nav>

@@ -2,12 +2,14 @@
 
 @section('title','Page2')
 @section('content')
+
+
 <div class="artikel">
     @csrf
     <h2>All Article List</h2>
     <br>
     <div >
-        <a href="/" class="btn btn-secondary">Add Article</a>
+        <a href="/page1" class="btn btn-secondary">Add Article</a>
     </div>
 
     <br>
@@ -21,17 +23,33 @@
           </tr>
         </thead>
         <tbody>
-            @foreach ($articles as $article)
+            @guest
+                @foreach ($articles as $article)
 
-            <tr>
-                <td><img src="{{ asset('storage/'.$article->file) }}" alt="{{$article->file}}" height="250px" width=300px/></td>
-                <td><a href="{{ route('showDataArtikel',$article->id) }}">{{ $article->judul_artikel }}</a></td>
-                <td>{{ $article->isi_artikel }}</td>
-                <td>
+                <tr>
+                    <td><img src="{{ asset('storage/'.$article->file) }}" alt="{{$article->file}}" height="250px" width=300px/></td>
+                    <td><a href="{{ route('showDataArtikel',$article->id) }}">{{ $article->judul_artikel }}</a></td>
+                    <td>{{ $article->isi_artikel }}</td>
+                    <td>
+                    </td>
+                </tr>
+                @endforeach
+            @else
+                @foreach ($articles as $article)
 
-                </td>
-            </tr>
-            @endforeach
+                <tr>
+                    <td><img src="{{ asset('storage/'.$article->file) }}" alt="{{$article->file}}" height="250px" width=300px/></td>
+                    <td><a href="{{ route('showDataArtikel',$article->id) }}">{{ $article->judul_artikel }}</a></td>
+                    <td>{{ $article->isi_artikel }}</td>
+                    <td>
+                        @if (Auth::user()->type == 'admin')
+                        <a href="/article/delete/{{$article->id}}" class="btn btn-danger">Delete</a>
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+            @endguest
+
         </tbody>
       </table>
 

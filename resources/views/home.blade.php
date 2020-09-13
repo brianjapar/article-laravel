@@ -3,9 +3,6 @@
 @section('title','Page1')
 @section('content')
 
-    @guest
-        asasdasdasda
-    @endguest
     @if (Session::has('msg'))
         <div class="alert alert-danger">
             {{Session::get('msg')}}
@@ -26,7 +23,7 @@
     @endif
 
 
-    {{-- <div class="container"> --}}
+
         <div class="artikel">
             <form method="POST" action="{{route('createArtikel')}}" enctype="multipart/form-data">
                @csrf
@@ -54,7 +51,5 @@
             <a href="/page2" class="btn btn-dark">2</a>
             <a href="/page3" class="btn btn-dark">3</a>
          </nav>
-    {{-- </div> --}}
-
 
 @endsection
